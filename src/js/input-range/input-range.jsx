@@ -35,6 +35,7 @@ export default class InputRange extends React.Component {
       name: PropTypes.string,
       onChangeStart: PropTypes.func,
       onChange: PropTypes.func.isRequired,
+      isWithinRange: PropTypes.func,
       onChangeComplete: PropTypes.func,
       step: PropTypes.number,
       value: valuePropType,
@@ -206,14 +207,19 @@ export default class InputRange extends React.Component {
    */
   isWithinRange(values) {
     if (this.isMultiValue()) {
-      return values.min >= this.props.minValue &&
+      return this.props.isWithinRange ? this.props.isWithinRange(values,this.props) : (values.min >= this.props.minValue &&
              values.max <= this.props.maxValue &&
              this.props.allowSameValues
               ? values.min <= values.max
-              : values.min < values.max;
+              : values.min < values.max)
+      // return values.min >= this.props.minValue &&
+      //        values.max <= this.props.maxValue &&
+      //        this.props.allowSameValues
+      //         ? values.min <= values.max
+      //         : values.min < values.max;
     }
 
-    return values.max >= this.props.minValue && values.max <= this.props.maxValue;
+    return this.props.isWithinRange ? this.props.isWithinRange(values,this.props) : (values.max >= this.props.minValue && values.max <= this.props.maxValue);
   }
 
   /**
