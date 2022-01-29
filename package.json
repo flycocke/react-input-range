@@ -1,6 +1,6 @@
 {
   "name": "react-input-range-revision",
-  "version": "1.3.0",
+  "version": "1.0.0",
   "description": "React component for inputting numeric values within a range,You can modify the minimum value to be equal to the maximum value",
   "keywords": [
     "react",
