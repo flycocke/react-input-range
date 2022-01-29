@@ -19,7 +19,7 @@ To accept min/max value:
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputRange from 'react-input-range';
+import InputRange from 'react-input-range-revision';
 
 class App extends React.Component {
   constructor(props) {
